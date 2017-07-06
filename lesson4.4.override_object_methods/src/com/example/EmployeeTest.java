@@ -11,7 +11,6 @@ import com.example.domain.Manager;
 public class EmployeeTest {
 
     public static void main(String[] args) {
-
         // Create the classes as per the practice
         Engineer eng = new Engineer(101, "Jane Smith", "012-34-5678", 120_345.27);
 
