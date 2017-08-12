@@ -23,6 +23,7 @@ public class FileAttributes {
             attrs = Files.readAttributes(file, DosFileAttributes.class);
         } catch (IOException e) {
             System.out.println("Exception reading attributes of the file: " + e);
+            System.exit(-1);
         }
         System.out.println(file);
         System.out.println("Creation time: " + toDate(attrs.creationTime()));
@@ -38,6 +39,6 @@ public class FileAttributes {
 
     // Utility method to print a better formatted time stamp
     public static String toDate(FileTime ft) {
-        return DateFormat.getInstance().format(new Date(ft.toMillis())).toString();
+        return DateFormat.getInstance().format(new Date(ft.toMillis()));
     }
 }

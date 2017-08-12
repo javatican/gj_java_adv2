@@ -16,6 +16,7 @@ public class PosixFileAttributeTest {
         Set<String> views
                 = FileSystems.getDefault().supportedFileAttributeViews();
         for (String s : views) {
+            System.out.println("Supported file attribute view:" + s);
             if (s.equals("posix")) {
                 unixFS = true;
             }
