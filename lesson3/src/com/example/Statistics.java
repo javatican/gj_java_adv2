@@ -11,6 +11,6 @@ public class Statistics {
             }
             result = (float) sum / nums.length;
         }
-        return (result);
+        return result;
     }
 }
