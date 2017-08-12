@@ -163,3 +163,29 @@
 /lesson12.6.ThreadInterruptingExample/nbproject/private/
 /lesson12.7.ThreadSleepExample/nbproject/private/
 /lesson12.8.ProcessorCountExample/nbproject/private/
+/LockExample/nbproject/private/
+/prac13_1/nbproject/private/
+/prac13_2/nbproject/private/
+/AtomicExample/build/
+/lesson13.1.AtomicExample/nbproject/private/
+/ch13_concurrent_samples/build/
+/ch13_concurrent_samples/dist/
+/ch13_concurrent_samples/nbproject/private/
+/ch13_concurrent_samples (副本)/build/
+/ch13_concurrent_samples (副本)/dist/
+/ch13_concurrent_samples (副本)/nbproject/private/
+/ch13_concurrent_samples (第 3 個副本)/build/
+/ch13_concurrent_samples (第 3 個副本)/dist/
+/ch13_concurrent_samples (第 3 個副本)/nbproject/private/
+/lesson13.2.atomic_concurrent /nbproject/private/
+/lesson13.3.LockExample/nbproject/private/
+/lesson13.4.readWriteLock/nbproject/private/
+/lesson13.4.readWriteLock/build/
+/lesson13.5.CountDownLatch/nbproject/private/
+/CyclicBarrierExample/build/
+/lesson13.6.CyclicBarrierExample/nbproject/private/
+/ThreadPoolExample/build/
+/ThreadPoolExample/dist/
+/lesson13.7.ThreadPoolExample/nbproject/private/
+/prac13_1/build/
+/prac13_2/build/
