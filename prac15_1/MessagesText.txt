@@ -1,0 +1,70 @@
+=== English(default locale) ===
+menu1 = Set to English
+menu2 = Set to French
+menu3 = Set to Chinese
+menu4 = Set to Russian
+menu5 = Show the Date
+menu6 = Show me the money!
+menuq = Enter q to quit
+menucommand = Enter a command:
+date1 = Default Date is:
+date2 = Long Date is:
+date3 = Short Date is:
+date4 = Full Date is:
+date5 = Full Time is:
+date6 = Day of week is:
+date7 = My custom day and time is:
+
+
+=== Simplified Chinese ===
+menu1=设置成英文
+menu2=设置成法文
+menu3=设置成中文
+menu4=设置成俄文
+menu5=显示日期
+menu6=显示金额!
+menuq=按q键退出
+menucommand=输入命令:
+date1=缺省日期:
+date2=长日期:
+date3=短日期:
+date4=全称日期:
+date5=全称时间:
+date6=星期:
+date7=客户日期和时间:
+
+
+=== Russian ===
+menu1 = Установить английский
+menu2 = Установить французский
+menu3 = Установить китайский
+menu4 = Установить русский
+menu5 = Показать дату
+menu6 = Покажите мне деньги!
+menuq = Введите q чтобы выйти
+menucommand = Ввести команду:
+date1 = Дата по-умолчанию:
+date2 = Длинная дата:
+date3 = Короткая дата:
+date4 = Полная дата:
+date5 = Полное время:
+date6 = День недели:
+date7 = Мои личные день и время:
+
+
+=== French ===
+menu1 = Positionner sur Anglais
+menu2 = Positionner sur Français
+menu3 = Positionner sur Chinois
+menu4 = Positionner sur Russe
+menu5 = Montrer la date
+menu6 = Montrer moi la monnaie!
+menuq = Saisir q pour quitter
+menucommand = Saisir une commande:
+date1 = La date par défaut est:
+date2 = La date au format long est:
+date3 = La date au format court est:
+date4 = La date complète est:
+date5 = L'heure complète est:
+date6 = Le jour de la semaine est:
+date7 = Mon réglage de la date et de l'heure est:

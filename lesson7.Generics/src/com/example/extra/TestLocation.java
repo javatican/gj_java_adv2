@@ -8,8 +8,8 @@ import java.util.TreeSet;
 
 public class TestLocation {
     public static void main(String[] args){
-        //Set<Location> locationList = new TreeSet<>();
-        Set<Location> locationList = new HashSet<>();
+        Set<Location> locationList = new TreeSet<>();
+        //Set<Location> locationList = new HashSet<>();
         locationList.addAll(Arrays.asList(Location.Taiwan, Location.Madagascar, Location.Russia, Location.CzechRepublic));
         
         for(Location l:locationList){

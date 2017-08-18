@@ -25,6 +25,7 @@ public class TestGrades {
         TestGrades grader = new TestGrades();
         List<Grade> student1 = new ArrayList<>(5);
         student1.addAll(Arrays.asList(Grade.A, Grade.B, Grade.A, Grade.A, Grade.B));
+        //List<Grade> student1 = Arrays.asList(Grade.A, Grade.B, Grade.A, Grade.A, Grade.B);
         grader.calcGpa(student1);
     }
 }
