@@ -8,6 +8,8 @@ public enum PowerState {
     
     private String description;
     
+    //constructor must be declared private 
+    // or default(but in effect it is private)
     private PowerState(String d) {
         description = d;
     }

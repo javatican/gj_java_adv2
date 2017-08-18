@@ -9,6 +9,7 @@ public class Car {
 
         public void start() {
             running = true;
+            //Car.this.running = true;
         }
     }
 

@@ -1,10 +1,13 @@
 package com.example.test;
 
+import com.example.dao.DAOException;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
 import com.example.model.Employee;
+import com.example.dao.EmployeeDAOFactory;
+import com.example.dao.EmployeeDAO;
 import java.util.Date;
 import java.text.NumberFormat;
 import java.text.ParseException;
@@ -12,19 +15,30 @@ import java.text.SimpleDateFormat;
 
 public class EmployeeTestInteractive {
 
-    public static void main(String[] args) throws Exception {
-        //TODO create factory
+    public static void main(String[] args) {
+        EmployeeDAOFactory factory = new EmployeeDAOFactory();
 
         boolean timeToQuit = false;
-
-        //TODO create dao
-        BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-        do {
-            timeToQuit = executeMenu(in);
-        } while (!timeToQuit);
+        try (EmployeeDAO dao = factory.createEmployeeDAO();
+                BufferedReader in = new BufferedReader(new InputStreamReader(System.in))) {
+            do {
+                try {
+                    timeToQuit = executeMenu(in, dao);
+                } catch (DAOException e) {
+                    System.out.println("Error " + e.getClass().getName());
+                    System.out.println("Message: " + e.getMessage());
+                }
+            } while (!timeToQuit);
+        } catch (IOException e) {
+            System.out.println("Error " + e.getClass().getName() + " , quiting.");
+            System.out.println("Message: " + e.getMessage());
+        } catch (Exception e) {
+            System.out.println("Error closing resource " + e.getClass().getName());
+            System.out.println("Message: " + e.getMessage());
+        }
     }
 
-    public static boolean executeMenu(BufferedReader in) throws IOException {
+    public static boolean executeMenu(BufferedReader in, EmployeeDAO dao) throws IOException, DAOException {
         Employee emp;
         String action;
         int id;
@@ -39,7 +53,7 @@ public class EmployeeTestInteractive {
             // Create a new employee record
             case 'C':
                 emp = inputEmployee(in);
-                emp.save();
+                dao.add(emp);
                 System.out.println("Successfully added Employee Record: " + emp.getId());
                 System.out.println("\n\nCreated " + emp);
                 break;
@@ -50,7 +64,7 @@ public class EmployeeTestInteractive {
                 id = new Integer(in.readLine().trim());
 
                 // Find this Employee record
-                emp = Employee.findById(id);
+                emp = dao.findById(id);
                 if (emp != null) {
                     System.out.println(emp + "\n");
                 } else {
@@ -66,7 +80,7 @@ public class EmployeeTestInteractive {
                 id = new Integer(in.readLine().trim());
                 // Find this Employee record
                 emp = null;
-                emp = Employee.findById(id);
+                emp = dao.findById(id);
                 if (emp == null) {
                     System.out.println("\n\nEmployee " + id + " not found");
                     break;
@@ -74,7 +88,7 @@ public class EmployeeTestInteractive {
                 // Go through the record to allow changes
 
                 emp = inputEmployee(in, emp);
-                emp.save();
+                dao.update(emp);
                 System.out.println("Successfully updated Employee Record: " + emp.getId());
                 break;
 
@@ -84,19 +98,13 @@ public class EmployeeTestInteractive {
                 id = new Integer(in.readLine().trim());
 
                 // Find this Employee record                 
-                emp = null;
-                emp = Employee.findById(id);
-                if (emp == null) {
-                    System.out.println("\n\nEmployee " + id + " not found");
-                    break;
-                }
-                emp.delete();
+                dao.delete(id);
                 System.out.println("Deleted Employee " + id);
                 break;
 
             // Display a list (Read the records) of Employees
             case 'L':
-                Employee[] allEmps = Employee.getAllEmployees();
+                Employee[] allEmps = dao.getAllEmployees();
                 for (Employee employee : allEmps) {
                     System.out.println(employee + "\n");
                 }
