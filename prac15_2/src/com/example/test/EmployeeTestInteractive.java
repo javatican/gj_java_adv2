@@ -8,7 +8,6 @@ import java.io.InputStreamReader;
 import com.example.model.Employee;
 import com.example.dao.EmployeeDAOFactory;
 import com.example.dao.EmployeeDAO;
-import java.text.DateFormat;
 import java.util.Date;
 import java.text.NumberFormat;
 import java.text.ParseException;
@@ -19,7 +18,7 @@ import java.util.ResourceBundle;
 public class EmployeeTestInteractive {
 
     private static ResourceBundle messages = ResourceBundle.getBundle("MessagesBundle");
-    
+
     public static void main(String[] args) {
         EmployeeDAOFactory factory = new EmployeeDAOFactory();
 
@@ -48,11 +47,10 @@ public class EmployeeTestInteractive {
         String action;
         int id;
 
-        System.out.println("Locale set to : " + Locale.getDefault());
-        System.out.println("\n\n[C] - " + messages.getString("MainMenuCreate") 
+        System.out.println("\n\n[C] - " + messages.getString("MainMenuCreate")
                 + " | [R] - " + messages.getString("MainMenuRead") + " | [U] - " + messages.getString("MainMenuUpdate")
                 + " | [D] - " + messages.getString("MainMenuDelete") + " | [L] - " + messages.getString("MainMenuList")
-                +" | [S] - " +  messages.getString("MainMenuSetLanguage") + " | [Q] - " + messages.getString("MainMenuQuit") + ": ");
+                + " | [S] - " + messages.getString("MainMenuSetLanguage") + " | [Q] - " + messages.getString("MainMenuQuit") + ": ");
         action = in.readLine();
         if ((action.length() == 0) || action.toUpperCase().charAt(0) == 'Q') {
             return true;
@@ -77,7 +75,7 @@ public class EmployeeTestInteractive {
                 if (emp != null) {
                     System.out.println(emp + "\n");
                 } else {
-                    System.out.println("\n\n" + messages.getString("EmployeeId") + " " + id + " " + messages.getString("NotFound"));                    
+                    System.out.println("\n\n" + messages.getString("EmployeeId") + " " + id + " " + messages.getString("NotFound"));
                     break;
                 }
 
@@ -118,7 +116,7 @@ public class EmployeeTestInteractive {
                     System.out.println(employee + "\n");
                 }
                 break;
-                
+
             // Set the default language
             case 'S':
                 setLocale(in);
@@ -177,8 +175,7 @@ public class EmployeeTestInteractive {
             }
         } while (firstName.length() < 1);
 
-
-        prompt =  messages.getString("InputMenuLastNamePrompt") + ((empDefaults == null) ? "" : " [" + empDefaults.getLastName() + "]");
+        prompt = messages.getString("InputMenuLastNamePrompt") + ((empDefaults == null) ? "" : " [" + empDefaults.getLastName() + "]");
         do {
             System.out.println(prompt + " : ");
             lastName = in.readLine().trim();
@@ -189,7 +186,6 @@ public class EmployeeTestInteractive {
                 System.out.println(messages.getString("InputMenuLastNameError"));
             }
         } while (lastName.length() < 1);
-
 
         prompt = messages.getString("InputMenuBirthDatePrompt") + " (" + df.toLocalizedPattern() + ")"
                 + ((empDefaults == null) ? "" : " [" + df.format(empDefaults.getBirthDate()) + "]");
@@ -207,7 +203,6 @@ public class EmployeeTestInteractive {
                 }
             }
         } while (birthDate == null);
-
 
         prompt = messages.getString("InputMenuSalaryPrompt")
                 + ((empDefaults == null) ? "" : " [" + nf.format((double) empDefaults.getSalary()) + "]");
@@ -235,32 +230,32 @@ public class EmployeeTestInteractive {
         emp = new Employee(id, firstName, lastName, birthDate, salary);
         return emp;
     }
-    
-    public static void setLocale(BufferedReader in){
+
+    public static void setLocale(BufferedReader in) {
         String action = "";
-        
+
         System.out.println(messages.getString("SetLanguageMenu1"));
         System.out.println(messages.getString("SetLanguageMenu2"));
         System.out.println(messages.getString("SetLanguageMenu3"));
         System.out.println(messages.getString("SetLanguageMenu4"));
-        
+
         try {
             action = in.readLine().trim();
-        }  catch (IOException e) {
+        } catch (IOException e) {
             System.out.println("Error: " + e.getMessage());
         }
-        
-        switch (action){ // US English
+
+        switch (action) { // US English
             case "1":
                 Locale.setDefault(Locale.US);
                 messages = ResourceBundle.getBundle("MessagesBundle", Locale.US);
                 break;
-                
+
             case "2": // French
                 Locale.setDefault(Locale.FRANCE);
                 messages = ResourceBundle.getBundle("MessagesBundle", Locale.FRANCE);
                 break;
-                
+
             case "3": // Russian
                 Locale russiaLocale = new Locale("ru", "RU");
                 Locale.setDefault(russiaLocale);

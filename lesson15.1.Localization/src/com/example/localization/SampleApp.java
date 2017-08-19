@@ -15,12 +15,12 @@ public class SampleApp {
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     Locale usLocale = Locale.US;
     Locale frLocale = Locale.FRANCE;
-    Locale zhLocale = new Locale("zh", "CN");
+    //Locale zhLocale = new Locale("zh", "TW");
     Locale ruLocale = new Locale("ru", "RU");
-    Locale currentLocale = Locale.getDefault();
+    Locale currentLocale = Locale.getDefault(); //zh_TW
     ResourceBundle messages = ResourceBundle.getBundle("MessagesBundle", currentLocale);
     NumberFormat currency;
-    Double money = new Double(1000000.00);
+    double money =  1000000.00;
     Date today = new Date();
     DateFormat df;
 
@@ -74,7 +74,8 @@ public class SampleApp {
     }
 
     public void setChinese() {
-        currentLocale = zhLocale;
+        //currentLocale = zhLocale;
+        currentLocale = Locale.getDefault();
         messages = ResourceBundle.getBundle("MessagesBundle", currentLocale);
     }
 

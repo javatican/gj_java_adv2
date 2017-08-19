@@ -15,9 +15,9 @@ public class DateApplication {
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
     Locale ruLocale = new Locale("ru", "RU");
-    Locale currentLocale = Locale.US;
+    Locale currentLocale = Locale.getDefault();
 
-    ResourceBundle messages = ResourceBundle.getBundle("MessagesBundle", Locale.US);
+    ResourceBundle messages = ResourceBundle.getBundle("MessagesBundle", currentLocale);
 
     Date today = new Date();
     DateFormat df;
@@ -92,7 +92,7 @@ public class DateApplication {
     }
 
     public void setChinese() {
-        currentLocale = Locale.SIMPLIFIED_CHINESE;
+        currentLocale = Locale.TRADITIONAL_CHINESE;
         messages = ResourceBundle.getBundle("MessagesBundle", currentLocale);
     }
 

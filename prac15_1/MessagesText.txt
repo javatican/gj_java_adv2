@@ -16,22 +16,22 @@ date6 = Day of week is:
 date7 = My custom day and time is:
 
 
-=== Simplified Chinese ===
-menu1=设置成英文
-menu2=设置成法文
-menu3=设置成中文
-menu4=设置成俄文
-menu5=显示日期
-menu6=显示金额!
-menuq=按q键退出
-menucommand=输入命令:
-date1=缺省日期:
-date2=长日期:
+=== Chinese ===
+menu1=設置成英文
+menu2=設置成法文
+menu3=設置成中文
+menu4=設置成俄文
+menu5=顯示日期
+menu6=顯示金額!
+menuq=按q鍵退出
+menucommand=輸入命令:
+date1=預設日期:
+date2=長日期:
 date3=短日期:
-date4=全称日期:
-date5=全称时间:
+date4=全稱日期:
+date5=全稱時間:
 date6=星期:
-date7=客户日期和时间:
+date7=客戶日期和時間:
 
 
 === Russian ===

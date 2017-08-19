@@ -16,7 +16,7 @@ public class EmployeeDAOJDBCImpl implements EmployeeDAO {
     // package level access
     EmployeeDAOJDBCImpl() {
         String url = "jdbc:derby://localhost:1527/EmployeeDB";
-        String username = "public";
+        String username = "dbadmin";
         String password = "tiger";
         try {
             con = DriverManager.getConnection(url, username, password);
