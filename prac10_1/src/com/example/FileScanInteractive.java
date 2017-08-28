@@ -44,15 +44,17 @@ public class FileScanInteractive {
             // each line from the keyboard.
             String search = "";
             System.out.println("Searching through the file: " + file);
-            while (true) {
-                System.out.print("Enter the search string or q to exit: ");
-                search = in.readLine().trim();
+            System.out.print("Enter the search string or q to exit: ");
+            while ((search = in.readLine()) != null) {
+                search = search.trim();
                 if (search.equalsIgnoreCase("q")) {
                     break;
                 }
                 int count = scan.countTokens(file, search);
                 System.out.println("The word \"" + search + "\" appears "
                         + count + " times in the file.");
+
+                System.out.print("Enter the search string or q to exit: ");
             }
         } catch (IOException e) { // Catch any IO exceptions.
             System.out.println("Exception: " + e);
